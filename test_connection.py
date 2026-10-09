@@ -19,6 +19,10 @@ try:
     print("Free:", balance["USDT"]["free"])
     print("Used:", balance["USDT"]["used"])
     print("Total:", balance["USDT"]["total"])
+    print("Other balances:")
+    for currency, data in balance["total"].items():
+       if data >= 0:
+           print(currency, data) 
 
 except ccxt.AuthenticationError:
     print("Authentication failed. Check your API key and secret.")
